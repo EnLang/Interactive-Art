@@ -1,0 +1,78 @@
+PImage img ;
+PImage QR ;
+PImage florence;
+PImage ocm ;
+
+int alpha;
+int click;
+float easing =0.05;
+float speed = 10;
+int target_alpha;
+void setup()
+
+{
+  size(620, 877);
+  noStroke();
+
+}
+
+
+void draw()
+
+{
+  background(255);
+
+ //the use of alpha and easing were adapted from the code of user pauline303 from https://forum.processing.org/one/topic/fade-in-out-in-a-function.html 
+
+  float dx = target_alpha - alpha;
+  if (abs(dx) > 1) {
+    alpha += dx * easing;
+  }
+ 
+ 
+ // images and their placement 
+ 
+  PImage QR = loadImage ("QR.png");
+  image(QR, 130, 158, width/1.75, height/1.75);
+ 
+  PImage florence = loadImage ("florence.png");
+  image(florence, 37, 40, width/2, height/2);
+ 
+  PImage ocm = loadImage ("ocm.png");
+  image(ocm, 390, 673, width/3, height/3);
+ 
+ //the horizontal bars and their placement
+  
+  fill(0, alpha);
+  rect(0,13, 620, 20);
+  rect(0,103, 620, 20);
+  rect(0,193, 620, 20);
+  rect(0,283, 620, 20);
+  rect(0,373, 620, 20);
+  rect(0,463, 620, 20);
+  rect(0,553, 620, 20);
+  rect(0,643, 620, 20);
+  rect(0,733, 620, 20);
+  rect(0,823, 620, 20);
+  rect(0,913, 620, 20);
+
+}
+
+ //The if function where if the mouse is pressed the lines appear and if pressed again, they disappear
+ //The mouse clicks represent a person coming near the poster and being detected by the infrared sensor. 
+ //The lines disappear when this happens.  
+ //Then another click represents that person leaving the range of the infrared sensor and the lines reappear.
+ 
+void mousePressed()
+{
+  if (click ==0)
+  {
+    target_alpha =255;
+    click =1;
+  }
+  else
+  {
+    target_alpha =0;
+    click =0;
+  }
+}
