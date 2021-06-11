@@ -1,4 +1,4 @@
-# Interective-Art
+# Interactive-Art
 
 Inspiration: 
 The inspiration for this interactive poster came from the artwork we chose itself. The artwork that we decided to advertise in our poster is OCM II by Florence To. 
